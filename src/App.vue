@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<nav class="nav navbar navbar-dark bg-dark" style="background-color: #e3f2fd;">
+			<router-link class="nav-link" to="/">Home</router-link>
+			<router-link class="nav-link" to="/about">About</router-link>
+			<router-link class="nav-link" to="/weather">Weather</router-link>
+			<router-link class="nav-link" to="/recommendation">Recommendation</router-link>
+		</nav>
+
+		<router-view />
+	</div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+<script>
+
+	export default {
+		name: 'App',
+	}
 </script>
 
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+	@import './assets/css/bootstrap.min.css';
+	#app {
+		background-image: url('./assets/warm-bg.jpg');
+		background-size: cover;
+		background-position: bottom;
+		transition: 0.4s;
+		height: 100vh;
+	}
 </style>
