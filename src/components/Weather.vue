@@ -1,6 +1,6 @@
 <template>
 	<div id="weather_app" :class="getWeatherClass()">
-		<div class="search-box">
+		<div class="search-box container">
 			<input
 				type="text" 
 				class="form-coontrol search-bar" 
@@ -21,14 +21,15 @@
 			</div>
 		</div>
 
-		<div class="hourly-weather" v-if="weather_hourly.length != 0">
+		<div class="hourly-weather container" v-if="weather_hourly.length != 0">
 			<div 
-				class="date-card" 
-				v-for="hour of weather_hourly" :key="hour.dt"
-				:class="getWeatherCardClass(hour.weather[0].main)" >
-				<h3 class='centered'>{{ secondsToTime(hour.dt) }}</h3>
-				<h2 class='centered'>{{ Math.round(hour.temp) }}&#176;C</h2>
-				<h4 class='centered'>{{ hour.weather[0].main }}</h4>
+				class="col-md-3 col-lg-2 col-sm-6 p-1" 
+				v-for="hour of weather_hourly" :key="hour.dt">
+				<div class="date-card" :class="getWeatherCardClass(hour.weather[0].main)" >
+					<h3 class='centered'>{{ secondsToTime(hour.dt) }}</h3>
+					<h2 class='centered'>{{ Math.round(hour.temp) }}&#176;C</h2>
+					<h4 class='centered'>{{ hour.weather[0].main }}</h4>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -58,7 +59,7 @@
 			},
 			getWeather (location) {
 				if (location == null){
-					location = localStorage.getItem("location") || "Chicago US";
+					location = localStorage.getItem("location") || "Chicago";
 				}
 				fetch(`${this.base_url}weather?q=${location}&units=metric&APPID=${this.api_key}`)
 				.then(response => {
@@ -73,18 +74,20 @@
 			getWeatherHourly (){
 				this.weather_hourly = [];
 				try{
-					let lat = localStorage.getItem("location_lat");
-					let lon = localStorage.getItem("location_lon");
+					let lat = localStorage.getItem("location_lat") || null;
+					let lon = localStorage.getItem("location_lon") || null;
+					if (lat == null || lon == null){
+						return;
+					}
 					fetch(`${this.base_url}onecall?lat=${lat}&lon=${lon}&exclude=minutely,daily&units=metric&APPID=${this.api_key}`)
 					.then(response => {
 						return response.json();
 					}).then(res => {
 						let i = 0;
 						for(let hour of res.hourly){
-							console.log(hour);
 							this.weather_hourly.push(hour);
 							i++;
-							if (i == 8){
+							if (i == 12){
 								break;
 							}
 						}
@@ -162,7 +165,7 @@
 
 
 
-<style>
+<style scoped>
 	* {
 		margin: 0;
 		padding: 0;
@@ -235,14 +238,12 @@
 	}
 
 	.location-box .location {
-		/* color: #fff; */
 		font-size:  32px;
 		font-weight: 500;
 		text-align: center;
 		text-shadow: 1px 3px rgba(0,0,0,0.25);
 	}
 	.location-box .date {
-		/* color: #fff; */
 		font-size:  20px;
 		font-weight: 300;
 		text-align: center;
@@ -254,7 +255,6 @@
 	.weather-box .temp {
 		display: inline-block;
 		padding: 10px 25px;
-		/* color: #fff; */
 		font-size: 102px;
 		font-weight: 900;
 		text-shadow: 3px 6px rgba(0,0,0,0.25);
@@ -264,7 +264,6 @@
 		box-shadow: 3px 6px rgba(0,0,0,0.25);
 	}
 	.weather-box .weather {
-		/* color: #fff; */
 		font-size: 48px;
 		font-weight: 700;
 		font-style: italic;
@@ -274,14 +273,13 @@
 	.hourly-weather {
 		margin-top: 2em;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-around;
 	}
 
 	.date-card {
 		background: rgba(0,0,0,0.75);
 		border-radius: 16px;
-		width: 120px;
-		height: 120px;
 		display: flex;
 		color: #fff;
 		flex-direction: column;
@@ -292,8 +290,9 @@
 		padding-top: 10px;
 		text-align: center;
 	}
-	.sunny-card {
+	.sun-card {
 		background-image: url('../assets/sun-card.jpg');
+		color: #313131;
 	}
 	.cloud-card {
 		background-image: url('../assets/clouds-card.jpg');
