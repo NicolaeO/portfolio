@@ -14,6 +14,9 @@
         name: 'Home',
         options:{
             title: "Home"
+        },
+        created(){
+            document.title = "Welcome";
         }
     }
 </script>

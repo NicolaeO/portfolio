@@ -159,6 +159,7 @@
 		},
 		created() {
 			this.getWeather();
+			document.title = "Weather";
 		}
 	}
 </script>

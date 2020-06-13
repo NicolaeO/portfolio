@@ -8,7 +8,10 @@
 
 <script>
     export default {
-        name: 'Recommendation'
+        name: 'Recommendation',
+        created(){
+            document.title = "What I recommend";
+        }
     }
 </script>
 

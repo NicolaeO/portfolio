@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-sm-12 text-sm-center" :inner-html.prop="linkedInHtml()">
+                <div class="col-md-4 col-sm-12 text-sm-center" id="linkedin_profile" :inner-html.prop="linkedInHtml()">
                     
                 </div>
             </div>
@@ -80,6 +80,7 @@
             .then(res => {
                 this.experience = res;
             });
+            document.title = "About";
         },
         filters: {
             badgeCreator: function(value){
