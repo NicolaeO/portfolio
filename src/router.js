@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Weather from './components/Weather.vue'
+import Activities from './components/Activities.vue'
 import Recommendation from './components/Recommendation.vue'
 
 
@@ -25,6 +26,11 @@ export default new Router({
             path: '/weather',
             name: 'weather',
             component: Weather
+        },
+        {
+            path: '/activities',
+            name: 'activities',
+            component: Activities
         },
         {
             path: '/recommendation',
