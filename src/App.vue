@@ -98,6 +98,7 @@
 		transition: 0.4s;
 		margin-bottom: -60px;
 		min-height: calc(100vh - 70px);
+		position: relative;
 	}
 
 	.footer{
