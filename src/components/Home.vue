@@ -1,11 +1,10 @@
 <template>
     <div id="home_app">
-            <h1 class="text-center display-4 font-weight-bold text-uppercase welcome-text">Welcome to my page</h1>
-
-
-        <!-- <div class="welcome-page">
-            <h1 class="text-center display-4 font-weight-bold text-uppercase welcome-text">Welcome to my page</h1>
-        </div> -->
+        <div class="text-center welcome-page">
+            <h1 class="display-4 font-weight-bold text-uppercase welcome-text">Welcome to my page</h1>
+            <p class="text-uppercase text-secondary">to learn more about my experience check out <router-link class="link" to="/about">About</router-link> page</p>
+            <p class="text-uppercase text-secondary">also check out <router-link class="link" to="/activities">Activities</router-link> I just love beeing outdoors</p>
+        </div>
     </div>
 </template>
 
@@ -27,16 +26,22 @@
 
 <style scoped>
     #home_app {
+        user-select: none;
     }
     .welcome-page {
-    }
-
-    .welcome-text {
         width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .welcome-text {
 	}
+
+    .link{
+        color: #333;
+        text-decoration: none;
+    }
 
 </style>
