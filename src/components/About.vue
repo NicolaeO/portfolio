@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-sm-12 text-sm-center" id="linkedin_profile" :inner-html.prop="linkedInHtml()">
+                <div class="col-md-4 col-sm-12 text-center" id="linkedin_profile" :inner-html.prop="linkedInHtml()">
                     
                 </div>
             </div>
@@ -69,7 +69,7 @@
         data() {
             return {
                 experience: [],
-                base_url: "http://localhost:666/",
+                base_url: "http://nicolaeorlov.com/",
             }
         },
         created (){

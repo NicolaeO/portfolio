@@ -1,6 +1,6 @@
 <template>
-	<div id="weather_app" :class="getWeatherClass()">
-		<div class="search-box container">
+	<div id="weather_app">
+		<div class="search-box">
 			<input
 				type="text" 
 				class="form-coontrol search-bar" 
@@ -22,8 +22,7 @@
 		</div>
 
 		<div class="hourly-weather container" v-if="weather_hourly.length != 0">
-			<div 
-				class="col-md-3 col-lg-2 col-sm-6 p-1" 
+			<div class="col-md-3 col-lg-2 col-sm-6 p-1" 
 				v-for="hour of weather_hourly" :key="hour.dt">
 				<div class="date-card" :class="getWeatherCardClass(hour.weather[0].main)" >
 					<h3 class='centered'>{{ secondsToTime(hour.dt) }}</h3>
@@ -116,33 +115,37 @@
 				return `${hour}:00 ${am_pm}`;
 			},
 			getWeatherClass () {
+			/*
 				if(typeof this.weather.main != 'undefined'){
+					let new_class = '';
 					let d = new Date();
 					let hour = d.getHours();
 					let temp = Math.round(this.weather.main.temp);
 					let weather_info = this.weather.weather[0].main;
 					if(weather_info == "Clear"){
 						if (hour < 8 && hour > 5){
-							return "morning";
+							new_class = "morning";
 						}
 						if (hour > 22 && hour < 5){
-							return "evening";
+							new_class = "evening";
 						}
 						if (temp >= 18){
-							return "sunny";
+							new_class = "sunny";
 						}
 						if (temp < 18){
-							return "cold";
+							new_class = "cold";
 						}
 					}
 					else if (weather_info == "Clouds"){
-						return "cloudy"
+						new_class = "cloudy"
 					}
 					else{
-						return "rainy";
+						new_class = "rainy";
 					}
+					// TODO: later implementation
+					document.body.className += ' ' + new_class;
 				}
-				return "";
+			*/
 			},
 			getWeatherCardClass(sky_type){
 				if (sky_type == "Clouds"){
@@ -160,6 +163,8 @@
 		created() {
 			this.getWeather();
 			document.title = "Weather";
+			this.getWeatherClass();
+
 		}
 	}
 </script>
@@ -172,38 +177,34 @@
 		padding: 0;
 		box-sizing: border-box;
 	}
-	body {
-		font-family: "montserrat", sans-serif;
-	}
+
 	#weather_app {
-		background-size: cover;
-		background-position: bottom;
 		transition: 0.4s;
-		height: 100vh;
 		padding: 30px;
 		color: #313131;
 	}
-	#weather_app.cold {
+	.cold {
 		background-image: url('../assets/cold-bg.jpg');
 		color: #fff;
 	}
-	#weather_app.rainy {
+	.rainy {
 		background-image: url('../assets/rainy-bg.jpg');
 		color: #fff;
 	}
-	#weather_app.evening {
+	.evening {
 		background-image: url('../assets/evening-bg.jpg');
 		color: #fff;
 	}
-	#weather_app.sunny {
+	.sunny {
 		background-image: url('../assets/sunny-bg.jpg');
 		color: #313131;
 	}
-	#weather_app.morning {
+	.morning {
 		background-image: url('../assets/morning-bg.jpg');
 		color: #fff;
 	}
-	#weather_app.cloudy {
+
+	.cloudy {
 		background-image: url('../assets/clouds-bg.jpg');
 		color: #fff;
 	}
@@ -212,11 +213,6 @@
 		padding-top: 30px;
 	}
 
-	main {
-		min-height: 100vh;
-		padding: 25px;
-		background-image: linear-gradient((to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.75)));
-	}
 	.search-box .search-bar {
 		display: block;
 		width: 100%;

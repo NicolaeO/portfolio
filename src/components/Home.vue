@@ -1,8 +1,11 @@
 <template>
     <div id="home_app">
-        <div class="container" >
-            <h1 class="text-center mt-3">Welcome to my personal page</h1>
-        </div>
+            <h1 class="text-center display-4 font-weight-bold text-uppercase welcome-text">Welcome to my page</h1>
+
+
+        <!-- <div class="welcome-page">
+            <h1 class="text-center display-4 font-weight-bold text-uppercase welcome-text">Welcome to my page</h1>
+        </div> -->
     </div>
 </template>
 
@@ -24,14 +27,16 @@
 
 <style scoped>
     #home_app {
-    /* body { */
-		background-size: cover;
-		transition: 0.4s;
-		height: 100vh;
-		padding: 30px;
-		color: #fff;
-		background-image: url('../assets/moon-bg.jpg') !important;
-        background-attachment: fixed;
+    }
+    .welcome-page {
+    }
+
+    .welcome-text {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 	}
 
 </style>

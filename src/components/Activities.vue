@@ -34,7 +34,10 @@ export default {
         return {
             local_images: [
                 "img_1.jpg",
+                "img_2.jpg",
+                "img_3.jpg",
                 "img_4.jpg",
+                "img_5.jpg",
                 "img_6.jpg",
                 "img_7.jpg",
                 "img_8.jpg",
@@ -57,18 +60,7 @@ export default {
                 "img_25.jpg",
                 "img_26.jpg",
                 "img_27.jpg",
-                "img_28.jpg",
-                "img_29.jpg",
-                "img_30.jpg",
-                "img_31.jpg",
-                "img_32.jpg",
-                "img_33.jpg",
-                "img_34.jpg",
-                "img_35.jpg",
-                "img_36.jpg",
-                "img_37.jpg",
-                "img_38.jpg",
-                "img_39.jpg"
+                "img_28.jpg"
             ],
             imgs: [],
             visible: false,
@@ -84,13 +76,7 @@ export default {
             this.visible = false;
         },
         getImage(img) {
-            return require(`./../assets/active/${img}`);
-        },
-        getThird (){
-            let start = Math.floor(this.imgs.length / 3) * this.piece;
-            this.piece ++;
-            let end = Math.floor(this.imgs.length / 3) * this.piece;
-            return this.imgs.slice(start, end)
+            return require(`./../assets/activities/${img}`);
         },
         shuffle() {
             this.local_images.sort(() => Math.random() - 0.5);
