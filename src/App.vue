@@ -34,19 +34,27 @@
 		<footer class="footer pt-4 pb-4 row">
 			<div class="col-sm-4 col-12">
 				Follow me:
-					<a href="https://www.instagram.com/nicolaeorlov/" class="pl-1 pr-1">IG</a> |
-					<a href="https://www.facebook.com/orlov.nicolae/" class="pl-1">Facebook</a>
-					<!-- <a href="https://www.instagram.com/nicolaeorlov/">IG</a> -->
+				<a href="https://www.instagram.com/nicolaeorlov/" class="pl-1 pr-1">
+					<img src="./assets/instagram.png" alt="IG | ">
+				</a>
+				<a href="https://www.facebook.com/orlov.nicolae/" class="pl-1">
+					<img src="./assets/facebook.png" alt="Facebook">
+				</a>
+				<!-- <a href="https://www.instagram.com/nicolaeorlov/">IG</a> -->
 			</div>
 
-			<div class="col-sm-4 col-12 faded">
+			<div class="col-sm-4 col-12 faded padding-sm-1">
 				&copy; Nick 2020
 			</div>
 
 			<div class="col-sm-4 col-12">
 				Checkout my:
-				<a href="https://github.com/NicolaeO" class="pl-1 pr-1">GitHub</a> |
-				<a href="https://repl.it/@Nicu104">Repl.it</a> 
+				<a href="https://github.com/NicolaeO" class="pl-1 pr-1">
+					<img src="./assets/github.png" alt="GitHub | ">
+				</a>
+				<a href="https://repl.it/@Nicu104">
+					<img src="./assets/replit.png" alt="Repl.it">
+				</a> 
 			</div>
 		</footer>
 	</div>
@@ -73,11 +81,15 @@
 	
 	@media only screen and (max-width: 576px) {
 		.router-view {
-			min-height: calc(100vh - 120px)!important;
+			min-height: calc(100vh - 160px)!important;
 		}
 		.push,
 		.footer{
-			height: 120px!important;
+			height: 160px!important;
+		}
+		.padding-sm-1{
+			padding-top: 1rem;
+			padding-bottom: 1rem;
 		}
 	}
 	
@@ -129,6 +141,10 @@
 
 	.faded{
 		color:#666
+	}
+	a img{
+		vertical-align: middle;
+		width: 35px;
 	}
 	
 </style>
