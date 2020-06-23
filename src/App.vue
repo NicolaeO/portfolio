@@ -34,10 +34,10 @@
 		<footer class="footer pt-4 pb-4 row">
 			<div class="col-sm-4 col-12">
 				Follow me:
-				<a href="https://www.instagram.com/nicolaeorlov/" class="pl-1 pr-1">
+				<a href="https://www.instagram.com/nicolaeorlov/" class="pl-1 pr-1" target="_blank">
 					<img src="./assets/instagram.png" alt="IG | ">
 				</a>
-				<a href="https://www.facebook.com/orlov.nicolae/" class="pl-1">
+				<a href="https://www.facebook.com/orlov.nicolae/" class="pl-1" target="_blank">
 					<img src="./assets/facebook.png" alt="Facebook">
 				</a>
 				<!-- <a href="https://www.instagram.com/nicolaeorlov/">IG</a> -->
@@ -49,11 +49,11 @@
 
 			<div class="col-sm-4 col-12">
 				Checkout my:
-				<a href="https://github.com/NicolaeO" class="pl-1 pr-1">
+				<a href="https://github.com/NicolaeO" class="pl-1 pr-1" target="_blank">
 					<img src="./assets/github.png" alt="GitHub | ">
 				</a>
 				<a href="https://repl.it/@Nicu104">
-					<img src="./assets/replit.png" alt="Repl.it">
+					<img src="./assets/replit.png" alt="Repl.it" target="_blank">
 				</a> 
 			</div>
 		</footer>

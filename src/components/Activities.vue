@@ -65,11 +65,11 @@ export default {
         /* flex-sp */
     }
     .img-small{
-        width: 300px;
         border-radius: 10px;
         height: 100%;
     }
     .pic{
+        height: 200px;
         display: inline-block;
         margin-top: 1.5em
     }
