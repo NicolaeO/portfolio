@@ -32,39 +32,10 @@ export default {
     },
     data() {
         return {
-            local_images: [
-                "img_1.jpg",
-                "img_2.jpg",
-                "img_3.jpg",
-                "img_4.jpg",
-                "img_5.jpg",
-                "img_6.jpg",
-                "img_7.jpg",
-                "img_8.jpg",
-                "img_9.jpg",
-                "img_10.jpg",
-                "img_11.jpg",
-                "img_12.jpg",
-                "img_13.jpg",
-                "img_14.jpg",
-                "img_15.jpg",
-                "img_16.jpg",
-                "img_17.jpg",
-                "img_18.jpg",
-                "img_19.jpg",
-                "img_20.jpg",
-                "img_21.jpg",
-                "img_22.jpg",
-                "img_23.jpg",
-                "img_24.jpg",
-                "img_25.jpg",
-                "img_26.jpg",
-                "img_27.jpg",
-                "img_28.jpg"
-            ],
             imgs: [],
             visible: false,
-            index: 0
+            index: 0,
+            base_url: "http://localhost:666/"
         }
     },
     methods: {
@@ -74,19 +45,16 @@ export default {
         },
         handleHide () {
             this.visible = false;
-        },
-        getImage(img) {
-            return require(`./../assets/activities/${img}`);
-        },
-        shuffle() {
-            this.local_images.sort(() => Math.random() - 0.5);
         }
     },
     created(){
-        this.shuffle();
-        for(let i of this.local_images){
-            this.imgs.push(this.getImage(i))
-        }
+        fetch(`${this.base_url}api/images`)
+            .then(response => {
+                    return response.json();
+            })
+            .then(res => {
+                this.imgs = res;
+            });
     },
 }
 </script>
@@ -99,6 +67,7 @@ export default {
     .img-small{
         width: 300px;
         border-radius: 10px;
+        height: 100%;
     }
     .pic{
         display: inline-block;
